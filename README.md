@@ -65,11 +65,17 @@ A recipe presentation site for Lemon Ginger No Churn Ice Cream by Victoria Littl
 
 The site will be available at `https://<username>.github.io/<repo>/` (or your custom domain if configured).
 
-### Production API URL
+### Production API URL & CORS
 
 If the frontend and API are on different origins (e.g. GitHub Pages + Render):
 
-1. Add before other scripts in `index.html`:
+1. Add your frontend URL(s) to the API's CORS config. In `server/appsettings.json`, set:
+   ```json
+   "Cors": { "AllowedOrigins": ["https://yourusername.github.io", "https://yourdomain.com"] }
+   ```
+   Or use the `Cors__AllowedOrigins` environment variable (semicolon-separated).
+
+2. Add before other scripts in `index.html`:
    ```html
    <script>window.__API_BASE__ = 'https://your-api-url.onrender.com';</script>
    ```

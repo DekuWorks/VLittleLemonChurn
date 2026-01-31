@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Lemon Ginger No Churn Ice Cream - Recipe by Victoria Little">
+  <meta name="theme-color" content="#d9a84f">
   <title>Lemon Ginger No Churn Ice Cream | Victoria Little</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +28,8 @@
     </div>
   </header>
 
-  <main id="main-content" class="slides-container" role="main">
-    <div class="slides" role="region" aria-label="Recipe slideshow">
+  <main id="main-content" class="slides-container" role="main" aria-label="Recipe presentation">
+    <div class="slides" role="region" aria-label="Recipe slideshow" aria-roledescription="slideshow">
       <!-- Slides loaded from src/slides/*.html -->
     </div>
   </main>
@@ -36,11 +37,11 @@
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
       <span id="slide-counter" class="slide-counter" aria-live="polite">Slide 1 of 6</span>
-      <div class="nav-controls">
+      <div class="nav-controls" role="group" aria-label="Slide navigation">
         <button type="button" id="prev-btn" class="btn-prev" aria-label="Previous slide">Previous</button>
         <button type="button" id="next-btn" class="btn-next" aria-label="Next slide">Next</button>
       </div>
-      <p class="keyboard-hint">Use ← → arrow keys to navigate</p>
+      <p class="keyboard-hint" id="keyboard-hint">Use ← → arrow keys to navigate</p>
     </div>
   </footer>
 

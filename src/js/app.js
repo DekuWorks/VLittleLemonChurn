@@ -38,9 +38,11 @@
     currentIndex = index;
 
     slides.forEach((slide, i) => {
-      slide.classList.toggle("is-active", i === currentIndex);
-      slide.setAttribute("aria-hidden", i !== currentIndex);
-      slide.setAttribute("tabindex", i === currentIndex ? "0" : "-1");
+      const isActive = i === currentIndex;
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", !isActive);
+      slide.setAttribute("aria-current", isActive ? "step" : null);
+      slide.setAttribute("tabindex", isActive ? "0" : "-1");
     });
 
     setHash(currentIndex);

@@ -2,13 +2,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var corsOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        policy.AllowAnyMethod().AllowAnyHeader();
+        if (corsOrigins.Length > 0)
+        {
+            policy.WithOrigins(corsOrigins);
+        }
+        else
+        {
+            policy.AllowAnyOrigin();
+        }
     });
 });
 

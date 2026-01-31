@@ -435,8 +435,50 @@ main {
   margin: 0 auto;
 }
 
+.best-time-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem auto 0;
+}
+
+.best-time-image {
+  text-align: center;
+}
+
+.best-time-image a {
+  display: inline-block;
+}
+
+.best-time-image img {
+  display: block;
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.best-time-image-caption {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--why-text-ink);
+  margin: 0.35rem 0 0;
+  font-style: italic;
+}
+
+.best-time-image a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
 /* --- Slide 6: Restrictions --- */
-.slide-content--restrictions { background: #d4d4d4; }
+.slide-content--restrictions {
+  background: #d4d4d4;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
 
 .slide-title--restrictions {
   font-family: var(--font-display);
@@ -472,6 +514,20 @@ main {
   text-transform: uppercase;
   text-decoration: underline;
   margin: 0 0 0.5rem;
+}
+
+.restrictions-heading a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.restrictions-heading a:hover {
+  opacity: 0.85;
+}
+
+.restrictions-heading a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .restrictions-text {
@@ -567,6 +623,35 @@ main {
   border: 0;
 }
 
+/* --- Accessibility: Focus & Contrast --- */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--cover-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-contrast: more) {
+  .toc-link, .nav-pills a, .btn-prev, .btn-next {
+    border: 2px solid var(--recipe-ink);
+  }
+}
+
+/* --- Touch targets (min 44x44px) --- */
+@media (pointer: coarse) {
+  .nav-pills a { padding: 0.6rem 1.25rem; min-height: 44px; }
+  .toc-link { padding: 0.5rem 0.75rem; min-height: 44px; }
+  .btn-prev, .btn-next { padding: 0.75rem 1.5rem; min-height: 44px; min-width: 44px; }
+  .skip-link { padding: 0.75rem 1.25rem; min-height: 44px; }
+}
+
+/* --- Tablet --- */
+@media (max-width: 900px) {
+  main { padding: 1.5rem 1rem 5.5rem; }
+  .slide-content { padding: 2rem; }
+  .toc-container { max-width: 320px; }
+  .cover-title-box { padding: 1.75rem 2rem; }
+}
+
+/* --- Mobile landscape & small tablets --- */
 @media (max-width: 768px) {
   .recipe-layout { grid-template-columns: 1fr; }
   .recipe-sidebar {
@@ -575,16 +660,40 @@ main {
     flex-wrap: wrap;
     gap: 1rem;
   }
-  .recipe-nutrition, .recipe-ingredients { flex: 1; min-width: 200px; }
+  .recipe-nutrition, .recipe-ingredients { flex: 1; min-width: 180px; }
+  .restrictions-body, .best-time-body { max-width: 100%; }
 }
 
+/* --- Mobile portrait --- */
 @media (max-width: 640px) {
-  .header-inner { flex-direction: column; gap: 1rem; text-align: center; }
-  .nav-pills { flex-wrap: wrap; justify-content: center; }
-  .slide-content { padding: 1.5rem; min-height: 360px; }
-  .slide { min-height: 360px; }
-  .slide-title--cover { letter-spacing: 0.06em; }
-  .slide-body--why { font-size: 0.85rem; }
-  .footer-inner { flex-direction: column; }
-  .keyboard-hint { text-align: center; }
+  body { padding-bottom: env(safe-area-inset-bottom, 0); }
+  main { padding: 1rem 0.75rem 5rem; }
+  .site-header { padding: 0.75rem 1rem; padding-top: calc(0.75rem + env(safe-area-inset-top, 0)); }
+  .header-inner { flex-direction: column; gap: 0.75rem; text-align: center; }
+  .nav-pills { flex-wrap: wrap; justify-content: center; gap: 0.35rem; }
+  .nav-pills a { font-size: 0.85rem; padding: 0.5rem 0.85rem; }
+  .brand { font-size: 1rem; }
+  .slide { min-height: 320px; }
+  .slide-content { padding: 1.25rem; min-height: 320px; }
+  .slide-title--cover { letter-spacing: 0.06em; font-size: clamp(1.25rem, 5vw, 1.6rem); }
+  .slide-author { font-size: 1.6rem; }
+  .slide-body--why, .slide-body--egg-whites, .slide-body--best-time { font-size: 0.85rem; }
+  .slide-title--why, .slide-title--egg-whites, .slide-title--best-time, .slide-title--restrictions { font-size: clamp(1rem, 4vw, 1.2rem); }
+  .best-time-image img { max-width: 180px; }
+  .toc-container { padding: 1rem 1.25rem; max-width: 100%; margin: 0 0.75rem; }
+  .toc-title { font-size: 0.9rem; }
+  .cover-title-box { padding: 1.5rem 1.25rem; }
+  .recipe-title { font-size: 1.4rem; }
+  .recipe-heading { font-size: 0.85rem; }
+  .restrictions-text, .restrictions-list li { font-size: 0.85rem; }
+  .site-footer { padding: 0.75rem 1rem; padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0)); }
+  .footer-inner { flex-direction: column; gap: 0.75rem; text-align: center; }
+  .keyboard-hint { font-size: 0.8rem; text-align: center; }
+  .slides { margin: 0 0.5rem; }
+}
+
+/* --- Small mobile --- */
+@media (max-width: 380px) {
+  .nav-pills a { padding: 0.45rem 0.65rem; font-size: 0.8rem; }
+  .slide-content { padding: 1rem; }
 }
