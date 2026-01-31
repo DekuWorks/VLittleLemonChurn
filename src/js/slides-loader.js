@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  const SLIDES = ["cover.html", "why.html", "recipe.html"];
+  const SLIDES = ["cover.html", "why.html", "egg-whites.html", "recipe.html", "best-time.html", "restrictions.html"];
   const SLIDES_DIR = "src/slides/";
 
   function loadSlide(filename) {

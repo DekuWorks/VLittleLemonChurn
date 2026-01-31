@@ -14,23 +14,17 @@
   const nextBtn = document.getElementById("next-btn");
   const slideCounter = document.getElementById("slide-counter");
 
-  /**
-   * Parse hash to slide index (e.g., #slide-2 -> 1)
-   */
   function getIndexFromHash() {
     const hash = window.location.hash;
     const match = hash && hash.match(/^#slide-(\d+)$/);
     if (match) {
       const idx = parseInt(match[1], 10) - 1;
-      const max = (slides && slides.length) || 3;
+      const max = (slides && slides.length) || 6;
       if (idx >= 0 && idx < max) return idx;
     }
     return 0;
   }
 
-  /**
-   * Update URL hash without scrolling
-   */
   function setHash(index) {
     const hash = `#slide-${index + 1}`;
     if (window.location.hash !== hash) {
@@ -39,9 +33,6 @@
     }
   }
 
-  /**
-   * Show slide at given index
-   */
   function goToSlide(index) {
     if (index < 0 || index >= totalSlides) return;
     currentIndex = index;
@@ -57,6 +48,7 @@
     updateNavButtons();
     updateNavPills();
     manageFocus();
+    document.body.classList.toggle("on-cover", currentIndex === 0);
   }
 
   function updateCounter() {
@@ -78,9 +70,6 @@
     });
   }
 
-  /**
-   * Move focus to active slide for screen readers
-   */
   function manageFocus() {
     const activeSlide = slides[currentIndex];
     if (activeSlide && document.activeElement) {
@@ -103,9 +92,6 @@
     goToSlide(currentIndex + 1);
   }
 
-  /**
-   * Handle hash change (browser back/forward)
-   */
   function onHashChange() {
     const idx = getIndexFromHash();
     if (idx !== currentIndex) {
@@ -113,9 +99,6 @@
     }
   }
 
-  /**
-   * Keyboard: Left = Prev, Right = Next
-   */
   function onKeyDown(e) {
     if (e.target.closest("input, textarea, select")) return;
 
