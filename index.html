@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lemon Ginger recipe - a refreshing, immune-boosting drink">
+  <title>Lemon Ginger Churn | Recipe</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#" class="brand" aria-label="Lemon Churn - Home">Lemon Churn</a>
+      <nav class="nav-pills" aria-label="Slide navigation">
+        <a href="#slide-1" aria-label="Go to slide 1">Cover</a>
+        <a href="#slide-2" aria-label="Go to slide 2">Why Lemon Ginger</a>
+        <a href="#slide-3" aria-label="Go to slide 3">Let's Make It</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="slides-container" role="main">
+    <div class="slides" role="region" aria-label="Recipe slideshow">
+      <!-- Slide 1: Cover -->
+      <section
+        id="slide-1"
+        class="slide is-active"
+        data-bg="assets/cover.png"
+        role="article"
+        aria-labelledby="slide-1-title"
+        aria-hidden="false"
+        tabindex="0"
+      >
+        <div class="slide-bg" aria-hidden="true"></div>
+        <div class="slide-content">
+          <h2 id="slide-1-title" class="slide-title sr-only">Cover - Lemon Ginger Churn</h2>
+          <p class="slide-body">Lemon Ginger Churn — a refreshing, immune-boosting recipe.</p>
+        </div>
+      </section>
+
+      <!-- Slide 2: Why Lemon Ginger -->
+      <section
+        id="slide-2"
+        class="slide"
+        data-bg="assets/why.png"
+        role="article"
+        aria-labelledby="slide-2-title"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+        <div class="slide-bg" aria-hidden="true"></div>
+        <div class="slide-content">
+          <h2 id="slide-2-title" class="slide-title sr-only">Why Lemon Ginger</h2>
+          <p class="slide-body">Discover the benefits of lemon and ginger for wellness and flavor.</p>
+        </div>
+      </section>
+
+      <!-- Slide 3: Let's Make It -->
+      <section
+        id="slide-3"
+        class="slide"
+        data-bg="assets/lets-make-it.png"
+        role="article"
+        aria-labelledby="slide-3-title"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+        <div class="slide-bg" aria-hidden="true"></div>
+        <div class="slide-content">
+          <h2 id="slide-3-title" class="slide-title sr-only">Let's Make It</h2>
+          <p class="slide-body">Step-by-step instructions to create your Lemon Ginger Churn.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <span id="slide-counter" class="slide-counter" aria-live="polite">Slide 1 of 3</span>
+      <div class="nav-controls">
+        <button type="button" id="prev-btn" class="btn-prev" aria-label="Previous slide">Previous</button>
+        <button type="button" id="next-btn" class="btn-next" aria-label="Next slide">Next</button>
+      </div>
+      <p class="keyboard-hint">Use ← → arrow keys to navigate • Reload with #slide-1, #slide-2, #slide-3</p>
+    </div>
+  </footer>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>
