@@ -51,6 +51,7 @@
     updateNavPills();
     manageFocus();
     document.body.classList.toggle("on-cover", currentIndex === 0);
+    document.body.classList.toggle("on-why", currentIndex === 1);
   }
 
   function updateCounter() {
