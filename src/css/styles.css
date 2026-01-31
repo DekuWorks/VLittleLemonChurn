@@ -581,6 +581,70 @@ main {
   text-transform: uppercase;
 }
 
+/* --- Slide 7: Cooking Method --- */
+.slide-content--cooking-method {
+  background: #d4d4d4;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+.slide-title--cooking-method {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  color: var(--why-text-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.cooking-method-body {
+  max-width: 58ch;
+  margin: 0 auto;
+}
+
+.cooking-method-intro {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--why-text-ink);
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+  text-transform: uppercase;
+}
+
+.cooking-method-section {
+  margin-bottom: 1.5rem;
+}
+
+.cooking-method-heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--why-text-ink);
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin: 0 0 0.5rem;
+}
+
+.cooking-method-list {
+  margin: 0.5rem 0 0 1.25rem;
+  padding: 0;
+}
+
+.cooking-method-list li {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--why-text-ink);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.cooking-method-list--numbered {
+  list-style: decimal;
+}
+
 .api-loading { font-style: italic; opacity: 0.9; font-size: 0.95rem; }
 .api-error { color: #8b4513; font-size: 0.9rem; }
 
@@ -689,7 +753,7 @@ a:focus-visible, button:focus-visible {
     gap: 1rem;
   }
   .recipe-nutrition, .recipe-ingredients { flex: 1; min-width: 180px; }
-  .restrictions-body, .best-time-body { max-width: 100%; }
+  .restrictions-body, .best-time-body, .cooking-method-body { max-width: 100%; }
 }
 
 /* --- Mobile portrait --- */
@@ -706,14 +770,14 @@ a:focus-visible, button:focus-visible {
   .slide-title--cover { letter-spacing: 0.06em; font-size: clamp(1.25rem, 5vw, 1.6rem); }
   .slide-author { font-size: 1.6rem; }
   .slide-body--why, .slide-body--egg-whites, .slide-body--best-time { font-size: 0.85rem; }
-  .slide-title--why, .slide-title--egg-whites, .slide-title--best-time, .slide-title--restrictions { font-size: clamp(1rem, 4vw, 1.2rem); }
+  .slide-title--why, .slide-title--egg-whites, .slide-title--best-time, .slide-title--restrictions, .slide-title--cooking-method { font-size: clamp(1rem, 4vw, 1.2rem); }
   .best-time-image img { max-width: 180px; }
   .toc-container { padding: 1rem 1.25rem; max-width: 100%; margin: 0 0.75rem; }
   .toc-title { font-size: 0.9rem; }
   .cover-title-box { padding: 1.5rem 1.25rem; }
   .recipe-title { font-size: 1.4rem; }
   .recipe-heading { font-size: 0.85rem; }
-  .restrictions-text, .restrictions-list li { font-size: 0.85rem; }
+  .restrictions-text, .restrictions-list li, .cooking-method-intro, .cooking-method-list li { font-size: 0.85rem; }
   .site-footer { padding: 0.75rem 1rem; padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0)); }
   .footer-inner { flex-direction: column; gap: 0.75rem; text-align: center; }
   .keyboard-hint { font-size: 0.8rem; text-align: center; }

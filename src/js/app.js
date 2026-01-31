@@ -19,7 +19,7 @@
     const match = hash && hash.match(/^#slide-(\d+)$/);
     if (match) {
       const idx = parseInt(match[1], 10) - 1;
-      const max = (slides && slides.length) || 6;
+      const max = (slides && slides.length) || 7;
       if (idx >= 0 && idx < max) return idx;
     }
     return 0;
