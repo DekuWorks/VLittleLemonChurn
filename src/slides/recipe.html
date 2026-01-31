@@ -1,0 +1,42 @@
+<!-- Slide 3: Let's Make It -->
+<section
+  id="slide-3"
+  class="slide slide--recipe"
+  role="article"
+  aria-labelledby="slide-3-title"
+  aria-hidden="true"
+  tabindex="-1"
+>
+  <div class="slide-content slide-content--recipe">
+    <h2 id="slide-3-title" class="sr-only">Let's Make It - Recipe</h2>
+    <div class="recipe-layout">
+      <div class="recipe-main">
+        <h3 class="recipe-title">LETS MAKE IT</h3>
+        <div id="api-recipe-container" class="recipe-instructions">
+          <p class="api-loading" aria-live="polite">Loading recipe…</p>
+          <div class="api-content recipe-steps" hidden></div>
+          <p class="api-error" hidden>Could not load recipe. Please check your connection.</p>
+        </div>
+      </div>
+      <div class="recipe-sidebar">
+        <div class="recipe-nutrition">
+          <h4 class="recipe-heading">NUTRIONAL FACTS</h4>
+          <p class="recipe-per-serving">PER SERVING</p>
+          <div id="api-nutrition-container">
+            <p class="api-loading" aria-live="polite">Loading…</p>
+            <div class="api-content" hidden></div>
+            <p class="api-error" hidden>Could not load.</p>
+          </div>
+        </div>
+        <div class="recipe-ingredients">
+          <h4 class="recipe-heading">INGREDIENTS</h4>
+          <div id="api-ingredients-container" class="recipe-ingredients-list">
+            <p class="api-loading" aria-live="polite">Loading…</p>
+            <ul class="api-content" hidden></ul>
+            <p class="api-error" hidden>Could not load.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

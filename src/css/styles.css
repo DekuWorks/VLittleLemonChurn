@@ -1,0 +1,604 @@
+/* Lemon Ginger No Churn Ice Cream - Poster-Style Slide Deck */
+
+/* --- CSS Variables (from slides) --- */
+:root {
+  --cover-gold: #d9a84f;
+  --cover-gold-dark: #c4933a;
+  --why-text-ink: #333333;
+  --recipe-mustard: #d4b896;
+  --recipe-parchment: #e8dcc4;
+  --recipe-ink: #2c2416;
+  --text-ink: var(--recipe-ink);
+  --overlay-white: rgba(255, 255, 255, 0.92);
+  --overlay-cream: rgba(255, 252, 245, 0.95);
+  --border-purple: #c4b5d4;
+  --radius: 8px;
+  --shadow: 0 4px 24px rgba(44, 36, 22, 0.2);
+  --transition: 0.3s ease;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-script: "Great Vibes", cursive;
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-display);
+  background: linear-gradient(135deg, var(--recipe-parchment) 0%, var(--recipe-mustard) 100%);
+  color: var(--text-ink);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* --- Skip Link --- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--recipe-ink);
+  color: var(--recipe-parchment);
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 3px solid var(--cover-gold);
+  outline-offset: 2px;
+}
+
+/* --- Layout --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 1rem 1.5rem;
+  background: var(--overlay-white);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--recipe-ink);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.brand:focus {
+  outline: 2px solid var(--cover-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --- Top Navigation (Pills) --- */
+.nav-pills {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-pills a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--recipe-ink);
+  text-decoration: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav-pills a:hover,
+.nav-pills a:focus {
+  background: var(--cover-gold);
+  color: white;
+}
+
+.nav-pills a:focus {
+  outline: 2px solid var(--recipe-ink);
+  outline-offset: 2px;
+}
+
+/* --- Main Content --- */
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 6rem;
+}
+
+.slides {
+  position: relative;
+}
+
+.slides-error {
+  padding: 2rem;
+  color: var(--recipe-ink);
+  text-align: center;
+}
+
+.slides-error code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+/* --- Slide Sections --- */
+.slide {
+  display: none;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  min-height: 420px;
+  border: 2px solid var(--border-purple);
+}
+
+.slide.is-active {
+  display: block;
+}
+
+.slide-content {
+  padding: 2.5rem;
+  min-height: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* --- Slide 1: Cover --- */
+.slide--cover .slide-content {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slide-content--cover {
+  background: transparent;
+}
+
+.cover-title-box {
+  padding: 2rem 2.5rem;
+  background: linear-gradient(
+    135deg,
+    #d9a84f 0%,
+    #c4933a 100%
+  );
+  border-radius: var(--radius);
+  border: 2px solid var(--border-purple);
+}
+
+.slide-title--cover {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.slide-separator {
+  display: block;
+  color: white;
+  font-size: 1.25rem;
+  margin: 0.25rem 0;
+  letter-spacing: 0.2em;
+}
+
+.slide-author {
+  font-family: var(--font-script);
+  font-size: 2rem;
+  font-weight: 400;
+  color: white;
+  margin: 0.5rem 0 0;
+  letter-spacing: 0.05em;
+}
+
+/* --- Table of Contents (Cover slide) --- */
+.slide--cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.slide--cover .slide-content {
+  flex-shrink: 0;
+  min-height: auto;
+}
+
+.toc-container {
+  padding: 1.25rem 2rem;
+  background: linear-gradient(
+    135deg,
+    #d9a84f 0%,
+    #c4933a 100%
+  );
+  border-radius: var(--radius);
+  border: 2px solid var(--border-purple);
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.toc-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.75rem;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+}
+
+.toc-list li {
+  margin-bottom: 0.5rem;
+}
+
+.toc-list li:last-child {
+  margin-bottom: 0;
+}
+
+.toc-link {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+  margin: 0 -0.5rem;
+  border-radius: 4px;
+  transition: background-color var(--transition), color var(--transition);
+  outline: none;
+}
+
+.toc-link:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.toc-link:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.toc-link:focus-visible {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+/* --- Slide 2: Why --- */
+.slide-content--why {
+  background: linear-gradient(
+    to bottom,
+    #fffcf5 0%,
+    #f5f0e6 100%
+  );
+}
+
+.slide-title--why {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  font-weight: 600;
+  color: var(--why-text-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1.5rem;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.slide-body--why {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--why-text-ink);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* --- Slide 3: Recipe --- */
+.slide-content--recipe {
+  background: linear-gradient(
+    135deg,
+    #e8dcc4 0%,
+    #d4b896 100%
+  );
+  justify-content: flex-start;
+}
+
+.recipe-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 2rem;
+  width: 100%;
+}
+
+.recipe-main {
+  min-width: 0;
+}
+
+.recipe-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--recipe-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 1.25rem;
+}
+
+.recipe-heading {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--recipe-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.25rem;
+}
+
+.recipe-per-serving {
+  font-size: 0.8rem;
+  color: var(--recipe-ink);
+  margin: 0 0 0.5rem;
+  font-weight: 400;
+}
+
+.recipe-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.recipe-nutrition .api-content {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.recipe-ingredients-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recipe-ingredients-list li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.recipe-ingredients-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--recipe-ink);
+  font-weight: 700;
+}
+
+.recipe-steps {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--recipe-ink);
+}
+
+.recipe-steps .instruction-section {
+  margin-bottom: 1rem;
+}
+
+.recipe-steps .instruction-heading {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.03em;
+}
+
+.recipe-steps .instruction-text {
+  margin: 0;
+}
+
+/* --- API loading/error --- */
+.api-loading {
+  font-style: italic;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.api-error {
+  color: #8b4513;
+  font-size: 0.9rem;
+}
+
+/* --- Footer --- */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  padding: 1rem 1.5rem;
+  background: var(--overlay-white);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 -4px 24px rgba(44, 36, 22, 0.1);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.slide-counter {
+  font-size: 0.9rem;
+  color: var(--recipe-ink);
+}
+
+.nav-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-prev,
+.btn-next {
+  padding: 0.6rem 1.25rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--recipe-ink);
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.btn-prev:hover:not(:disabled),
+.btn-next:hover:not(:disabled) {
+  background: var(--cover-gold);
+  color: white;
+}
+
+.btn-prev:focus,
+.btn-next:focus,
+.btn-prev:focus-visible,
+.btn-next:focus-visible {
+  outline: none;
+  border-color: var(--recipe-ink);
+  box-shadow: 0 0 0 2px var(--recipe-parchment);
+}
+
+.btn-prev:disabled,
+.btn-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.keyboard-hint {
+  font-size: 0.85rem;
+  color: var(--recipe-ink);
+  opacity: 0.8;
+}
+
+/* --- Screen Reader Only --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .recipe-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-sidebar {
+    order: -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .recipe-nutrition,
+  .recipe-ingredients {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .nav-pills {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .slide-content {
+    padding: 1.5rem;
+    min-height: 360px;
+  }
+
+  .slide {
+    min-height: 360px;
+  }
+
+  .slide-title--cover {
+    letter-spacing: 0.06em;
+  }
+
+  .slide-body--why {
+    font-size: 0.85rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+
+  .keyboard-hint {
+    text-align: center;
+  }
+}

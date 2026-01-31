@@ -3,76 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lemon Ginger recipe - a refreshing, immune-boosting drink">
-  <title>Lemon Ginger Churn | Recipe</title>
-  <link rel="stylesheet" href="styles/styles.css">
+  <meta name="description" content="Lemon Ginger No Churn Ice Cream - Recipe by Victoria Little">
+  <title>Lemon Ginger No Churn Ice Cream | Victoria Little</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
 
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a href="#" class="brand" aria-label="Lemon Churn - Home">Lemon Churn</a>
+      <a href="#" class="brand" aria-label="Lemon Ginger No Churn Ice Cream - Home">Lemon Ginger No Churn</a>
       <nav class="nav-pills" aria-label="Slide navigation">
-        <a href="#slide-1" aria-label="Go to slide 1">Cover</a>
-        <a href="#slide-2" aria-label="Go to slide 2">Why Lemon Ginger</a>
-        <a href="#slide-3" aria-label="Go to slide 3">Let's Make It</a>
+        <a href="#slide-1" aria-label="Go to Cover">Cover</a>
+        <a href="#slide-2" aria-label="Go to Why">Why</a>
+        <a href="#slide-3" aria-label="Go to Recipe">Recipe</a>
       </nav>
     </div>
   </header>
 
   <main id="main-content" class="slides-container" role="main">
     <div class="slides" role="region" aria-label="Recipe slideshow">
-      <!-- Slide 1: Cover -->
-      <section
-        id="slide-1"
-        class="slide is-active"
-        data-bg="assets/cover.png"
-        role="article"
-        aria-labelledby="slide-1-title"
-        aria-hidden="false"
-        tabindex="0"
-      >
-        <div class="slide-bg" aria-hidden="true"></div>
-        <div class="slide-content">
-          <h2 id="slide-1-title" class="slide-title sr-only">Cover - Lemon Ginger Churn</h2>
-          <p class="slide-body">Lemon Ginger Churn — a refreshing, immune-boosting recipe.</p>
-        </div>
-      </section>
-
-      <!-- Slide 2: Why Lemon Ginger -->
-      <section
-        id="slide-2"
-        class="slide"
-        data-bg="assets/why.png"
-        role="article"
-        aria-labelledby="slide-2-title"
-        aria-hidden="true"
-        tabindex="-1"
-      >
-        <div class="slide-bg" aria-hidden="true"></div>
-        <div class="slide-content">
-          <h2 id="slide-2-title" class="slide-title sr-only">Why Lemon Ginger</h2>
-          <p class="slide-body">Discover the benefits of lemon and ginger for wellness and flavor.</p>
-        </div>
-      </section>
-
-      <!-- Slide 3: Let's Make It -->
-      <section
-        id="slide-3"
-        class="slide"
-        data-bg="assets/lets-make-it.png"
-        role="article"
-        aria-labelledby="slide-3-title"
-        aria-hidden="true"
-        tabindex="-1"
-      >
-        <div class="slide-bg" aria-hidden="true"></div>
-        <div class="slide-content">
-          <h2 id="slide-3-title" class="slide-title sr-only">Let's Make It</h2>
-          <p class="slide-body">Step-by-step instructions to create your Lemon Ginger Churn.</p>
-        </div>
-      </section>
+      <!-- Slides loaded from src/slides/*.html -->
     </div>
   </main>
 
@@ -83,10 +37,13 @@
         <button type="button" id="prev-btn" class="btn-prev" aria-label="Previous slide">Previous</button>
         <button type="button" id="next-btn" class="btn-next" aria-label="Next slide">Next</button>
       </div>
-      <p class="keyboard-hint">Use ← → arrow keys to navigate • Reload with #slide-1, #slide-2, #slide-3</p>
+      <p class="keyboard-hint">Use ← → arrow keys to navigate</p>
     </div>
   </footer>
 
-  <script src="scripts/app.js"></script>
+  <script src="src/js/config.js"></script>
+  <script src="src/js/slides-loader.js"></script>
+  <script src="src/js/api.js"></script>
+  <script src="src/js/app.js"></script>
 </body>
 </html>

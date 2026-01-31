@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# .NET
+server/bin/
+server/obj/
+*.user
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+*.nupkg
+*.log
+.vs/
+*.DotSettings.user
+
+# Rider
+.idea/
+
+# Build outputs
+dist/
+server/out/

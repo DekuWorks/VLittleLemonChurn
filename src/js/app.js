@@ -1,14 +1,13 @@
 /**
  * Lemon Churn Recipe - Slide Deck
- * Manages slide state, navigation, and accessibility
+ * Manages slide state, navigation, hash routing, and accessibility
  */
 
 (function () {
   "use strict";
 
-  const SLIDE_SELECTOR = ".slide";
-  const slides = document.querySelectorAll(SLIDE_SELECTOR);
-  const totalSlides = slides.length;
+  let slides;
+  let totalSlides;
   let currentIndex = 0;
 
   const prevBtn = document.getElementById("prev-btn");
@@ -23,7 +22,8 @@
     const match = hash && hash.match(/^#slide-(\d+)$/);
     if (match) {
       const idx = parseInt(match[1], 10) - 1;
-      if (idx >= 0 && idx < totalSlides) return idx;
+      const max = (slides && slides.length) || 3;
+      if (idx >= 0 && idx < max) return idx;
     }
     return 0;
   }
@@ -37,19 +37,6 @@
       const url = window.location.pathname + window.location.search + hash;
       history.replaceState(null, "", url);
     }
-  }
-
-  /**
-   * Inject background images from data-bg
-   */
-  function initSlideBackgrounds() {
-    slides.forEach((slide) => {
-      const bg = slide.getAttribute("data-bg");
-      const bgEl = slide.querySelector(".slide-bg");
-      if (bg && bgEl) {
-        bgEl.style.backgroundImage = `url(${bg})`;
-      }
-    });
   }
 
   /**
@@ -92,7 +79,7 @@
   }
 
   /**
-   * Move focus to active slide for keyboard users
+   * Move focus to active slide for screen readers
    */
   function manageFocus() {
     const activeSlide = slides[currentIndex];
@@ -117,7 +104,7 @@
   }
 
   /**
-   * Handle hash change (e.g., browser back/forward)
+   * Handle hash change (browser back/forward)
    */
   function onHashChange() {
     const idx = getIndexFromHash();
@@ -127,7 +114,7 @@
   }
 
   /**
-   * Handle keyboard navigation
+   * Keyboard: Left = Prev, Right = Next
    */
   function onKeyDown(e) {
     if (e.target.closest("input, textarea, select")) return;
@@ -152,9 +139,6 @@
     }
   }
 
-  /**
-   * Bind events
-   */
   function bindEvents() {
     if (prevBtn) prevBtn.addEventListener("click", prev);
     if (nextBtn) nextBtn.addEventListener("click", next);
@@ -162,7 +146,7 @@
     window.addEventListener("hashchange", onHashChange);
     document.addEventListener("keydown", onKeyDown);
 
-    document.querySelectorAll('.nav-pills a[href^="#slide-"]').forEach((link) => {
+    document.querySelectorAll('a[href^="#slide-"]').forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
         const href = link.getAttribute("href");
@@ -174,19 +158,22 @@
     });
   }
 
-  /**
-   * Initialize
-   */
   function init() {
-    initSlideBackgrounds();
+    slides = document.querySelectorAll(".slide");
+    totalSlides = slides.length;
+    if (totalSlides === 0) return;
     currentIndex = getIndexFromHash();
     goToSlide(currentIndex);
     bindEvents();
   }
 
+  function runWhenReady() {
+    (window.slidesReady || Promise.resolve()).then(init);
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", runWhenReady);
   } else {
-    init();
+    runWhenReady();
   }
 })();
