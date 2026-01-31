@@ -311,6 +311,20 @@ main {
   text-align: center;
 }
 
+.slide-title--egg-whites a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.slide-title--egg-whites a:hover {
+  opacity: 0.85;
+}
+
+.slide-title--egg-whites a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
 .slide-title--egg-whites {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2.8vw, 1.5rem);
@@ -345,6 +359,20 @@ main {
   grid-template-columns: 1fr 280px;
   gap: 2rem;
   width: 100%;
+}
+
+.recipe-title a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.recipe-title a:hover {
+  opacity: 0.85;
+}
+
+.recipe-title a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .recipe-title {
